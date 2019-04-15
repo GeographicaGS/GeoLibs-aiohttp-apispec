@@ -13,12 +13,12 @@ COPY . .
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install -y --no-install-recommends curl git gcc \
+    && apt-get install -y --no-install-recommends git gcc \
     && pip install "poetry==$POETRY_VERSION" \
     && poetry config repositories.testpypi https://test.pypi.org/legacy/ \
     && poetry config settings.virtualenvs.create false \
     && poetry install --no-interaction --no-ansi \
-    && apt-get remove -y --purge curl git gcc \
+    && apt-get remove -y --purge git gcc \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
