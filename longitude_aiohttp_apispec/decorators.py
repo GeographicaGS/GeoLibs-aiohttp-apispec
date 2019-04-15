@@ -13,6 +13,11 @@ def docs(**kwargs):
     return wrapper
 
 
+# @request_schema(IndexSchema(strict=True), location='body')
+# @request_schema(IndexSchema(strict=True), location='form')
+# @request_schema(IndexSchema(strict=True), location='query')
+# @request_schema(IndexSchema(strict=True), location='headers')
+# @request_schema(IndexSchema(strict=True), location='path')
 def request_schema(schema, location, validate=True):
     if callable(schema):
         schema = schema()
@@ -46,6 +51,7 @@ def request_schema(schema, location, validate=True):
 use_kwargs = request_schema
 
 
+# @response_schema(IndexSchema(), 200, description='Standard response', clean=True)
 def response_schema(schema, code=200, description=None, validate=True, clean=False):
     if callable(schema):
         schema = schema()
@@ -62,10 +68,10 @@ def response_schema(schema, code=200, description=None, validate=True, clean=Fal
         if validate:
             if not hasattr(func, '__response_schemas__'):
                 func.__response_schemas__ = {}
-        func.__response_schemas__[code] = {
-            'schema': schema,
-            'clean': clean
-        }
+            func.__response_schemas__[code] = {
+                'schema': schema,
+                'clean': clean
+            }
 
         return func
 
