@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "geographica-longitude-aiohttp-apispec"
+version = "0.0.1"
+description = "Longitude aiohttp-apispec"
+authors = ["Geographica <hello@geographica.com>"]
+packages = [
+    { include='longitude_aiohttp_apispec' }
+]
+homepage = "https://github.com/GeographicaGS/Longitude-aiohttp-apispec"
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+aiohttp = "^3.5"
+apispec = "^1.2.0"
+jinja2 = '^2.10.1'
+marshmallow = "^2.19"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
