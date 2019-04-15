@@ -21,7 +21,7 @@ steps:
           - push
     commands:
       - echo -n "${DRONE_COMMIT_SHA},ci-${DRONE_BUILD_NUMBER}" > .tags
-  - name: docer_build
+  - name: docker_build
     image: plugins/gcr
     resources:
       limits: &resources
@@ -38,6 +38,10 @@ steps:
         - eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:master
   - name: poetry_build
     image: eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:ci-${DRONE_BUILD_NUMBER}
+    resources:
+      limits: &resources
+        memory: "1024m"
+      requests: *resources
     commands:
       - poetry build
 
@@ -59,6 +63,10 @@ depends_on:
 steps:
   - name: poetry_publish
     image: eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:ci-${DRONE_BUILD_NUMBER}
+    resources:
+      limits: &resources
+        memory: "1024m"
+      requests: *resources
     environment:
       PYPI_USER:
         from_secret: pypi_credentials_user

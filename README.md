@@ -3,6 +3,6 @@
 ### TODO
 - OpenAPI 3
 - Tests
-- Documentation:
+- Documentation
   - Installation
   - Use
