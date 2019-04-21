@@ -3,7 +3,7 @@ name: build_docker
 trigger:
   repo:
     include:
-      - GeographicaGS/Longitude-aiohttp-apispec
+      - GeographicaGS/GeoLibs-aiohttp-apispec
 steps:
   - name: docker_tags_push
     image: debian:stable-slim
@@ -28,16 +28,16 @@ steps:
         memory: "1024m"
       requests: *resources
     settings: &build_docker
-      repo: eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec
+      repo: eu.gcr.io/habichuelas/cicd/geolibs/aiohttp-apispec
       dockerfile: Dockerfile
       registry: eu.gcr.io
       json_key:
         from_secret: google_credentials
       cache_from:
-        - eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:${DRONE_COMMIT_BRANCH//\//__}
-        - eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:master
+        - eu.gcr.io/habichuelas/cicd/geolibs/aiohttp-apispec:${DRONE_COMMIT_BRANCH//\//__}
+        - eu.gcr.io/habichuelas/cicd/geolibs/aiohttp-apispec:master
   - name: poetry_build
-    image: eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:ci-${DRONE_BUILD_NUMBER}
+    image: eu.gcr.io/habichuelas/cicd/geolibs/aiohttp-apispec:ci-${DRONE_BUILD_NUMBER}
     resources:
       limits: &resources
         memory: "1024m"
@@ -55,14 +55,14 @@ trigger:
   event:
     - push
   repo:
-    - GeographicaGS/Longitude-aiohttp-apispec
+    - GeographicaGS/GeoLibs-aiohttp-apispec
   status:
     - success
 depends_on:
   - build_docker
 steps:
   - name: poetry_publish
-    image: eu.gcr.io/habichuelas/cicd/longitude/aiohttp-apispec:ci-${DRONE_BUILD_NUMBER}
+    image: eu.gcr.io/habichuelas/cicd/geolibs/aiohttp-apispec:ci-${DRONE_BUILD_NUMBER}
     resources:
       limits: &resources
         memory: "1024m"
