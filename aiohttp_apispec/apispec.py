@@ -15,7 +15,7 @@ VALID_RESPONSE_FIELDS = {'description', 'headers', 'examples'}
 VALID_RESPONSE_FULL_FIELDS = VALID_RESPONSE_FIELDS.union({'schema'})
 
 
-class Longitude_AIOHTTP_APISpec:
+class AIOHTTP_APISpec:
     def __init__(self, app, title, version, url='/api_docs/swagger.json',
                  swagger_path='/api_docs', static_path='/static/swagger',
                  request_data_prefix='validated_body', **kwargs):
@@ -151,5 +151,5 @@ def setup_apispec(
         url='/api_docs/swagger.json', swagger_path='/api_docs',
         static_path='/static/swagger', request_data_prefix='validated_',
         **kwargs):
-    Longitude_AIOHTTP_APISpec(app, title, version, url, swagger_path,
-                              static_path, request_data_prefix, **kwargs)
+    AIOHTTP_APISpec(app, title, version, url, swagger_path, static_path, request_data_prefix,
+                    **kwargs)
