@@ -3,7 +3,7 @@ name = "geolibs-aiohttp-apispec"
 packages = [
     { include='aiohttp_apispec' }
 ]
-version = "0.0.1"
+version = "0.0.2"
 description = "GeoLibs aiohttp-apispec"
 authors = ["Geographica <hello@geographica.com>"]
 homepage = "https://github.com/GeographicaGS/GeoLibs-aiohttp-apispec"
