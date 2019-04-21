@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "geographica-longitude-aiohttp-apispec"
+name = "geolibs-aiohttp-apispec"
 packages = [
-    { include='longitude_aiohttp_apispec' }
+    { include='aiohttp_apispec' }
 ]
-version = "0.0.2"
-description = "Longitude aiohttp-apispec"
+version = "0.0.1"
+description = "GeoLibs aiohttp-apispec"
 authors = ["Geographica <hello@geographica.com>"]
-homepage = "https://github.com/GeographicaGS/Longitude-aiohttp-apispec"
+homepage = "https://github.com/GeographicaGS/GeoLibs-aiohttp-apispec"
 license = "MIT"
 readme = "README.md"
 

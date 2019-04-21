@@ -1,4 +1,4 @@
-# Longitude-aiohttp-apispec
+# GeoLibs-aiohttp-apispec
 
 ### TODO
 - OpenAPI 3
